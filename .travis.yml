@@ -1,3 +1,5 @@
+language: osx
+
 install:
   - npm install -g cordova
 
