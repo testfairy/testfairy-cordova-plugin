@@ -1,0 +1,5 @@
+install:
+  - npm install -g cordova
+
+script:
+  - cordova create hello com.example.hello HelloWorld
