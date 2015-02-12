@@ -3,6 +3,7 @@ install:
 
 script:
   - cordova create hello com.example.hello HelloWorld
+  - cd hello
   - cordova platform add ios
   - cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
   - cordova build ios
