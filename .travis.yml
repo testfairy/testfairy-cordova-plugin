@@ -1,4 +1,4 @@
-language: osx
+language: objective-c
 
 install:
   - npm install -g cordova
