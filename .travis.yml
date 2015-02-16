@@ -4,10 +4,10 @@ install:
   - npm install -g cordova
 
 script:
+  # creating a simple HelloWorld project to make sure plugin links
   - cordova create hello com.example.hello HelloWorld
   - cd hello
   - cordova platform add ios
   - cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
   - cordova build ios
-  - find . -ls
 
