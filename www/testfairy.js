@@ -13,7 +13,9 @@
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
  under the License.
- */
+*/
+
+'use strict';
 
 var argscheck = require('cordova/argscheck'),
 utils = require('cordova/utils'),
@@ -21,16 +23,8 @@ exec = require('cordova/exec');
 
 var TestFairy = function() {
 	this.serviceName = "TestFairy";
-};
+}
 
-/**
- * Initialize a TestFairy session.
- *
- * @param successCallback function
- * @param failureCallback function
- * @param APIKey
- *
- */
 TestFairy.prototype.begin = function(APIKey) {
 	if (APIKey) {
 		exec(function(){}, function(){}, this.serviceName, "begin", [ APIKey ]);
@@ -98,7 +92,7 @@ TestFairy.prototype.setCorrelationId = function(correlationId) {
  *
  */
 TestFairy.prototype.pause = function() {
-	exec(function(){}, function(){}, this.serviceName, "pause", [ ]);
+	exec(function(){}, function(){}, this.serviceName, "pause", []);
 }
 
 /**
@@ -107,8 +101,8 @@ TestFairy.prototype.pause = function() {
  *
  */
 TestFairy.prototype.resume = function() {
-	exec(function(){}, function(){}, this.serviceName, "resume", [ ]);
+	exec(function(){}, function(){}, this.serviceName, "resume", []);
 }
 
-module.exports = TestFairy;
+module.exports = new TestFairy();
 
