@@ -21,7 +21,7 @@ Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#a
 ```
 onDeviceReady: function() {
   app.receivedEvent('deviceready');
-  TestFairy.begin("e27cf8c46bb25d8986e21915d700e493b268df0b");
+  TestFairy.begin("MY_APP_TOKEN");
 },
 ```
 
