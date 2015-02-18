@@ -1,8 +1,8 @@
-# TestFairy Plugin for PhoneGap/Cordova 
+# TestFairy Plugin for Cordova 
 
 [![Build Status](https://travis-ci.org/testfairy/testfairy-cordova-plugin.svg?branch=master)](https://travis-ci.org/testfairy/testfairy-cordova-plugin)
 
-### Supported Platforms.
+### Supported Platforms
 
 TestFairy SDK for PhoneGap/Cordova is currently available only for *iOS*. For Android apps, just upload the APK files directly to https://app.testfairy.com.
 
