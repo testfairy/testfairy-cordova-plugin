@@ -117,4 +117,44 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)version:(CDVInvokedUrlCommand*)command
+{
+	NSString *version = [TestFairy version];
+	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:version];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)sessionUrl:(CDVInvokedUrlCommand *)command
+{
+	NSString *sessioUrl = [TestFairy sessionUrl];
+	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:sessioUrl];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)takeScreenshot:(CDVInvokedUrlCommand *)command
+{
+	[TestFairy takeScreenshot];
+	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)sendUserFeedback:(CDVInvokedUrlCommand *)command
+{
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		
+		NSString *feedback = [arguments objectAtIndex:0];
+		[TestFairy sendUserFeedback:feedback];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Feedback is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end

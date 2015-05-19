@@ -1,4 +1,4 @@
-/*
+cordova.define("com.testfairy.cordova-plugin.TestFairy", function(require, exports, module) { /*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -103,6 +103,44 @@ TestFairy.prototype.pause = function() {
 TestFairy.prototype.resume = function() {
 	exec(function(){}, function(){}, this.serviceName, "resume", []);
 }
+	
+/**
+ * (Optional) Returns the version of TestFairy SDK. The string is
+ * returned by a callback a function.
+ *
+ * @param callback
+ */
+TestFairy.prototype.version = function(callback) {
+	exec(callback, function(){}, this.serviceName, "version", []);
+}
+			   
+/**
+ * (Optional) Returns the current session URL. The string is
+ * returned by a callback a function.
+ *
+ * @param callback
+ */
+TestFairy.prototype.sessionUrl = function(callback) {
+	exec(callback, function(){}, this.serviceName, "sessionUrl", []);
+}
+
+/**
+* (Optional) Takes a screenshot at the current time.
+*
+*/
+TestFairy.prototype.takeScreenshot = function() {
+	exec(function(){}, function(){}, this.serviceName, "takeScreenshot", []);
+}
+
+/**
+ * (Optional) Sends feedback for the current session.
+ *
+ */
+TestFairy.prototype.sendUserFeedback = function(feedback) {
+	exec(function(){}, function(){}, this.serviceName, "sendUserFeedback", [ feedback ]);
+}
 
 module.exports = new TestFairy();
 
+
+});
