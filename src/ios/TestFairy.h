@@ -11,6 +11,14 @@
 + (void)begin:(NSString *)APIKey;
 
 /**
+ * Initialize a TestFairy session with options.
+ *
+ * @param APIKey Your key as given to you in your TestFairy account
+ * @param options A dictionary of options controlling the current session
+ */
++ (void)begin:(NSString *)APIKey withOptions:(NSDictionary *)options;
+
+/**
  * Returns SDK version (x.x.x) string
  *
  * @return version

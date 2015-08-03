@@ -1,0 +1,30 @@
+{
+  "name": "com.testfairy.cordova-plugin",
+  "version": "1.4.6",
+  "description": "TestFairy SDK plugin for Cordova",
+  "cordova": {
+    "id": "com.testfairy.cordova-plugin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testfairy/testfairy-cordova-plugin"
+  },
+  "keywords": [
+    "cordova",
+    "testfairy",
+    "tests",
+    "monitoring",
+    "distribution",
+    "testflight",
+    "cordova-ios"
+  ],
+  "author": "Apache Software Foundation",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/testfairy/testfairy-cordova-plugin/issues"
+  },
+  "homepage": "https://github.com/testfairy/testfairy-cordova-plugin"
+}
