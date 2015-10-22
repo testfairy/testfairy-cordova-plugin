@@ -19,7 +19,8 @@
     "monitoring",
     "distribution",
     "testflight",
-    "cordova-ios"
+    "cordova-ios",
+    "ecosystem:cordova"
   ],
   "author": "Apache Software Foundation",
   "license": "Apache 2.0",
