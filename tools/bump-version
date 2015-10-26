@@ -1,0 +1,23 @@
+#!/bin/sh
+
+ROOTDIR=`dirname "$0"`
+ROOTDIR="$ROOTDIR/.."
+
+VERSION=$1
+
+if [ -z "$VERSION" ]; then
+	echo "Missing version parameter"
+	exit 1
+fi
+
+# update package.json
+jq ".version = \"$VERSION\"" "$ROOTDIR/package.json" > "$ROOTDIR/package.json.bumped"
+mv "$ROOTDIR/package.json.bumped" "$ROOTDIR/package.json"
+
+# update plugin.xml
+sed -i '.bak' "s/\(plugin.*version=\"\)[^\"]*\(\"\)/\1$VERSION\2/" plugin.xml 
+
+# download sdk
+curl -s -L -o TestFairySDK-${VERSION}.zip https://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}.zip
+unzip -o -q -d "$ROOTDIR/src/ios" TestFairySDK-${VERSION}.zip TestFairy.h libTestFairy.a
+rm -f TestFairySDK-${VERSION}.zip

@@ -81,6 +81,26 @@
 + (void)setCorrelationId:(NSString *)correlationId;
 
 /**
+ * Sets a correlation identifier for this session. This value can
+ * be looked up via web dashboard. For example, setting correlation
+ * to the value of the user-id after they logged in. Can be called
+ * only once per session (subsequent calls will be ignored.)
+ *
+ * @param correlationId Id for the current session
+ */
++ (void)identify:(NSString *)correlationId;
+
+/**
+ * Sets a correlation identifier for this session. This value can
+ * be looked up via web dashboard. For example, setting correlation
+ * to the value of the user-id after they logged in. Can be called
+ * only once per session (subsequent calls will be ignored.)
+ *
+ * @param correlationId Id for the current session
+ */
++ (void)identify:(NSString *)correlationId traits:(NSDictionary *)traits;
+
+/**
  * Pauses the current session. This method stops recoding of
  * the current session until resume has been called.
  *
