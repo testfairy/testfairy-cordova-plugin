@@ -34,4 +34,13 @@
         <framework src="OpenGLES.framework" />
         <framework src="CoreLocation.framework" />
     </platform>
+	<platform name="android">
+		<source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
+		<source-file src="src/android/sdk.jar" target-dir="libs" />
+		<config-file target="config.xml" parent="/widget">
+			<feature name="TestFairy">
+				<param name="android-package" value="com.testfairy.CDVTestFairy" />
+			</feature>
+		</config-file>
+	</platform>
 </plugin>

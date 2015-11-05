@@ -5,7 +5,8 @@
   "cordova": {
     "id": "com.testfairy.cordova-plugin",
     "platforms": [
-      "ios"
+      "ios",
+	  "android"
     ]
   },
   "repository": {
@@ -20,6 +21,7 @@
     "distribution",
     "testflight",
     "cordova-ios",
+	"cordova-android",
     "ecosystem:cordova"
   ],
   "author": "Apache Software Foundation",
@@ -29,3 +31,4 @@
   },
   "homepage": "https://github.com/testfairy/testfairy-cordova-plugin"
 }
+
