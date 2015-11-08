@@ -33,7 +33,7 @@ public class CDVTestFairy extends CordovaPlugin {
 			return false;
 		}
 
-        callbackContext.success();
+		callbackContext.success();
 		return true;
 	}
 }
