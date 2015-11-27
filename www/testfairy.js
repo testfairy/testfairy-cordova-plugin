@@ -25,14 +25,14 @@ var TestFairy = function() {
 	this.serviceName = "TestFairy";
 }
 
-TestFairy.prototype.begin = function(APIKey) {
+TestFairy.prototype.begin = function(APIKey, failureCallback) {
 	if (APIKey) {
 		exec(function(){}, function(){}, this.serviceName, "begin", [ APIKey ]);
 	} else {
 		// api key not provided
 
 		var errorString = "Invalid App Token";
-		if (failureCallback) {
+		if (typeof failureCallback == "function") {
 			failureCallback(errorString);
 		} else {
 			console.error(errorString);
