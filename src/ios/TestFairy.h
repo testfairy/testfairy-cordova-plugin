@@ -19,6 +19,14 @@
 + (void)begin:(NSString *)appToken withOptions:(NSDictionary *)options;
 
 /**
+ * Change the server endpoint for use with on-premise hosting. Please
+ * contact support or sales for more information. Must be called before begin
+ *
+ * @param serverOverride
+ */
++ (void)setServerEndpoint:(NSString *)serverOverride;
+
+/**
  * Returns SDK version (x.x.x) string
  *
  * @return version
@@ -32,6 +40,13 @@
  *
  */
 + (void)hideView:(UIView *)view;
+
+/**
+ * Hides a specific html element from appearing in your UIWebView
+ *
+ * @param selector The specific selector you wish to hide from screenshots. Multiple selectors can be comma separated
+ */
++ (void)hideWebViewElements:(NSString *)selector;
 
 /**
  * Pushes the feedback view controller. Hook a button
@@ -97,6 +112,7 @@
  * only once per session (subsequent calls will be ignored.)
  *
  * @param correlationId Id for the current session
+ * @param traits Attributes and custom attributes to be associated with this session
  */
 + (void)identify:(NSString *)correlationId traits:(NSDictionary *)traits;
 
@@ -146,3 +162,13 @@ extern "C" {
 #endif
 
 @end
+
+extern NSString *const TFSDKIdentityTraitNameKey;
+extern NSString *const TFSDKIdentityTraitEmailAddressKey;
+extern NSString *const TFSDKIdentityTraitBirthdayKey;
+extern NSString *const TFSDKIdentityTraitGenderKey;
+extern NSString *const TFSDKIdentityTraitPhoneNumberKey;
+extern NSString *const TFSDKIdentityTraitWebsiteAddressKey;
+extern NSString *const TFSDKIdentityTraitAgeKey;
+extern NSString *const TFSDKIdentityTraitSignupDateKey;
+
