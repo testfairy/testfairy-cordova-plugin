@@ -8,7 +8,7 @@ before_install:
 
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
   - echo yes | android update sdk --filter android-23 --no-ui --force > /dev/null
-  - echo yes | android update sdk --filter build-tools-23.0.3 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter build-tools-23.0.3 --all --no-ui --force > /dev/null
   - echo yes | android update sdk --filter sysimg-23 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null  
