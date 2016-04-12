@@ -5,8 +5,6 @@ before_install:
   - unzip android-sdk_r24.4.1-macosx.zip
   - export ANDROID_HOME=$PWD/android-sdk-macosx
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-  - ls -la $ANDROID_HOME
-  - ls -la $ANDROID_HOME/build-tools
 
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
   - echo yes | android update sdk --filter android-23 --no-ui --force > /dev/null
@@ -14,6 +12,9 @@ before_install:
   - echo yes | android update sdk --filter sysimg-23 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null  
+
+  - ls -la $ANDROID_HOME
+  - ls -la $ANDROID_HOME/build-tools
 
 install:
   - npm install -g cordova
