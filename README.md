@@ -4,7 +4,7 @@
 
 ### Supported Platforms
 
-TestFairy SDK for PhoneGap/Cordova is currently available only for *iOS*. For Android apps, just upload the APK files directly to https://app.testfairy.com.
+TestFairy SDK for PhoneGap/Cordova is currently only available for iOS and Android apps.
 
 ### Installation
 
