@@ -4,7 +4,7 @@
 
 ### Supported Platforms
 
-TestFairy SDK for PhoneGap/Cordova is currently available only for *iOS*. For Android apps, just upload the APK files directly to https://app.testfairy.com.
+TestFairy SDK for PhoneGap/Cordova is currently only available for iOS and Android apps.
 
 ### Installation
 
@@ -16,12 +16,14 @@ cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
 
 ### Usage
 
-Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin` from *onDeviceReady*. For example, here's *onDeviceReady* from *index.js*:
+Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your APP_TOKEN is available at https://app.testfairy.com/settings/#apptoken.
+
+It's recommended to invoke `TestFairy.begin` from `onDeviceReady`. For example, here's *onDeviceReady* from *index.js*:
 
 ```
 onDeviceReady: function() {
   app.receivedEvent('deviceready');
-  TestFairy.begin("MY_APP_TOKEN");
+  TestFairy.begin("APP_TOKEN");
 },
 ```
 

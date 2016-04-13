@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.testfairy.cordova-plugin" version="1.7.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.testfairy.cordova-plugin" version="2.0.0">
     <name>TestFairy Plugin</name>
     <description>TestFairy SDK plugin for Cordova</description>
     <license>Apache 2.0 License</license>
     <engines>
         <engine name="cordova" version=">=2.9.0" />
-	<!--
+    <!--
         <engine name="cordova-android" version=">=3.1.0" />
-	-->
+    -->
     </engines>
 
     <js-module src="www/testfairy.js" name="TestFairy">
@@ -33,5 +33,14 @@
         <framework src="SystemConfiguration.framework" />
         <framework src="OpenGLES.framework" />
         <framework src="CoreLocation.framework" />
+    </platform>
+    <platform name="android">
+        <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
+        <source-file src="src/android/testfairy-sdk.jar" target-dir="libs" />
+        <config-file target="config.xml" parent="/widget">
+            <feature name="TestFairy">
+                <param name="android-package" value="com.testfairy.CDVTestFairy" />
+            </feature>
+        </config-file>
     </platform>
 </plugin>

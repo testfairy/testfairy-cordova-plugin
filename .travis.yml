@@ -1,5 +1,18 @@
 language: objective-c
 
+before_install:
+  - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
+  - unzip android-sdk_r24.4.1-macosx.zip
+  - export ANDROID_HOME=$PWD/android-sdk-macosx
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+  - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter android-23 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter build-tools-23.0.3 --all --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter sysimg-23 --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+  - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null  
+
 install:
   - npm install -g cordova
 
@@ -8,6 +21,8 @@ script:
   - cordova create hello com.example.hello HelloWorld
   - cd hello
   - cordova platform add ios
+  - cordova platform add android
   - cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
   - cordova build ios
+  - cordova build android
 
