@@ -11,6 +11,12 @@ TestFairy SDK for PhoneGap/Cordova is currently only available for iOS and Andro
 To add the plugin to your project, simply run the following command from Terminal:
 
 ```
+cordova plugin add com.testfairy.cordova-plugin
+```
+
+or directly from GitHub
+
+```
 cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
 ```
 
