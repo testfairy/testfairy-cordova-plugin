@@ -1,24 +1,57 @@
 package com.testfairy;
 
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CordovaInterface;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.json.JSONException;
-import android.content.Intent;
+import org.json.JSONObject;
 
-import android.content.Context;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class CDVTestFairy extends CordovaPlugin {
+	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'", Locale.US);
+	private static final TimeZone UTC_TIMEZONE = TimeZone.getTimeZone("UTC");
+
+	static {
+		DATE_FORMAT.setTimeZone(UTC_TIMEZONE);
+	}
+
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if ("begin".equals(action)) {
 			String apiKey = args.optString(0);
 			TestFairy.begin(cordova.getActivity(), apiKey);
-		} else if ("pushFeedbackController".equals(action)) {
-
-		} else if ("updateLocation".equals(action)) {
-
+		} else if ("identify".equals(action)) {
+			if (args.length() == 1) {
+				String correlationId = args.optString(0, "");
+				TestFairy.identify(correlationId);
+			} else if (args.length() == 2) {
+				String correlationId = args.optString(0, "");
+				JSONObject traitObject = args.optJSONObject(1);
+				if (traitObject == null) {
+					TestFairy.identify(correlationId);
+				} else {
+					HashMap<String, Object> traits = new HashMap<String, Object>();
+					for (Iterator<String> iterator = traitObject.keys(); iterator.hasNext();) {
+						String key = iterator.next();
+						Object valueObject = traitObject.get(key);
+						if (valueObject instanceof Integer || valueObject instanceof Float || valueObject instanceof Double) {
+							traits.put(key, valueObject);
+						} else if (valueObject instanceof String) {
+							String value = (String) valueObject;
+							Date date = CDVTestFairy.parse(value);
+							traits.put(key, date == null ? value : date);
+						}
+					}
+					TestFairy.identify(correlationId, traits);
+				}
+			}
 		} else if ("checkpoint".equals(action)) {
 			String name = args.optString(0);
 			TestFairy.addCheckpoint(name);
@@ -30,10 +63,19 @@ public class CDVTestFairy extends CordovaPlugin {
 		} else if ("resume".equals(action)) {
 			TestFairy.resume();
 		} else {
+			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;
 		}
 
 		callbackContext.success();
 		return true;
+	}
+
+	private static Date parse(String value) {
+		try {
+			return DATE_FORMAT.parse(value);
+		} catch (Exception exception) {
+			return null;
+		}
 	}
 }

@@ -81,9 +81,23 @@ TestFairy.prototype.checkpoint = function(name) {
  * only once per session.
  *
  * @param correlationId
+ * @deprecated use identity instead
  */
 TestFairy.prototype.setCorrelationId = function(correlationId) {
 	exec(function(){}, function(){}, this.serviceName, "setCorrelationId", [ correlationId ]);
+}
+
+/**
+ * Sets a correlation identifier for this session. This value can
+ * be looked up via web dashboard. For example, setting correlation
+ * to the value of the user-id after they logged in. Can be called
+ * only once per session (subsequent calls will be ignored.)
+ *
+ * @param correlationId Id for the current session
+ * @param @optional traits Attributes and custom attributes to be associated with this session
+ */
+TestFairy.prototype.identify = function(correlationId, traits) {
+	exec(function(){}, function(){}, this.serviceName, "identify", Array.prototype.slice.call(arguments));
 }
 
 /**

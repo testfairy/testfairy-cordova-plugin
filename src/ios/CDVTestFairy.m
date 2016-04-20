@@ -5,16 +5,6 @@
 
 @implementation CDVTestFairy
 
-- (id)init
-{
-	self = [super init];
-	if (self) {
-		// Initialization code here.
-	}
-	
-	return self;
-}
-
 - (void)begin:(CDVInvokedUrlCommand*)command
 {
 	NSArray* arguments = command.arguments;
@@ -114,6 +104,39 @@
 	[TestFairy resume];
 	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)identify:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] <= 0) {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Correlation ID cannot be empty"];
+		[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+		return;
+	}
+	
+	NSString *correlationId = [arguments objectAtIndex:0];
+	NSDictionary *traitValues = [command argumentAtIndex:1 withDefault:@{}];
+	if ([traitValues count] == 0) {
+		[TestFairy identify:correlationId];
+	} else {
+//		NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+//		NSDateFormatter *_dateFormatter = [[NSDateFormatter alloc] init];
+//		[_dateFormatter setLocale:enUSPOSIXLocale];
+//		[_dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'.'SSS'Z'"];
+//		
+//		NSMutableDictionary *traits = [NSMutableDictionary dictionaryWithCapacity:[traitValues count]];
+//		for (NSString* key in traitValues) {
+//			id value = [traitValues objectForKey:key];
+//			NSDate *date = [_dateFormatter dateFromString:value];
+//			[traits setObject:(date == nil ? value : date) forKey:key];
+//		}
+		[TestFairy identify:correlationId traits:traitValues];
+	}
+	
+	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 

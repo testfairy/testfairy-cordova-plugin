@@ -9,5 +9,6 @@
 - (void)setCorrelationId:(CDVInvokedUrlCommand*)command;
 - (void)pause:(CDVInvokedUrlCommand*)command;
 - (void)resume:(CDVInvokedUrlCommand*)command;
+- (void)identify:(CDVInvokedUrlCommand*)command;
 
 @end
