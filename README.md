@@ -14,22 +14,30 @@ To add the plugin to your project, simply run the following command from Termina
 cordova plugin add com.testfairy.cordova-plugin
 ```
 
-which will install the project from [NPM](https://www.npmjs.com/package/com.testfairy.cordova-plugin). Alternatively, you could install it directly from GitHub
+which will install the project from [NPM](https://www.npmjs.com/package/com.testfairy.cordova-plugin). Alternatively, you could install it directly from GitHub:
 
 ```
 cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
 ```
 
+### Upgrading
+
+To upgrade your plugin, please run:
+
+```
+cordova plugin update com.testfairy.cordova-plugin
+```
+
 ### Usage
 
-Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your APP_TOKEN is available at https://app.testfairy.com/settings/#apptoken.
+Initialize TestFairy with your [App Token](https://app.testfairy.com/settings/#apptoken) by calling `TestFairy.begin`. Your **APP TOKEN** is available at https://app.testfairy.com/settings/#apptoken.
 
 It's recommended to invoke `TestFairy.begin` from `onDeviceReady`. For example, here's *onDeviceReady* from *index.js*:
 
 ```
 onDeviceReady: function() {
   app.receivedEvent('deviceready');
-  TestFairy.begin("APP_TOKEN");
+  TestFairy.begin("SDK_APP_TOKEN");
 },
 ```
 
@@ -42,6 +50,7 @@ onDeviceReady: function() {
  * `TestFairy.setCorrelationId(id)` - Set an identifier that can be looked up through dashboard
  * `TestFairy.pushFeedbackController()` - Present a feedback dialog to the user
  * `TestFairy.updateLocation(position)` - Mark geo location at this point (to be used with `navigator.geolocation.getCurrentPosition`)
+ * `TestFairy.identify(correlationId, traits)` - Identify this session by a correlation identifier and (optionally) traits. 
 
 
 
