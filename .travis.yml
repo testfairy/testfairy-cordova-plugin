@@ -6,14 +6,14 @@ before_install:
 - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
 - echo yes | android update sdk --filter android-23 --no-ui --force > /dev/null
-- echo yes | android update sdk --filter build-tools-23.0.3 --all --no-ui --force
-  > /dev/null
+- echo yes | android update sdk --filter build-tools-23.0.3 --all --no-ui --force > /dev/null
 - echo yes | android update sdk --filter sysimg-23 --no-ui --force > /dev/null
 - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
-- echo yes | android update sdk --filter extra-android-m2repository --no-ui --force
-  > /dev/null
+- echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+
 install:
 - npm install -g cordova
+
 script:
 - cordova create hello com.example.hello HelloWorld
 - cd hello
@@ -22,6 +22,7 @@ script:
 - cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
 - cordova build ios
 - cordova build android
+- cd ..
 
 deploy:
   provider: npm
