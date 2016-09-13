@@ -1,6 +1,6 @@
 {
   "name": "com.testfairy.cordova-plugin",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "TestFairy SDK plugin for Cordova",
   "cordova": {
     "id": "com.testfairy.cordova-plugin",
