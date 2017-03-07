@@ -7,20 +7,20 @@
 
 - (void)begin:(CDVInvokedUrlCommand*)command
 {
-	NSArray* arguments = command.arguments;
-	CDVPluginResult* pluginResult = nil;
-	
-	if ([arguments count] > 0) {
+	[self.commandDelegate runInBackground:^{
+		NSArray* arguments = command.arguments;
+		CDVPluginResult* pluginResult = nil;
 		
-		NSString *APIKey = [arguments objectAtIndex:0];
-		[TestFairy begin:APIKey];
-		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		if ([arguments count] > 0) {
+			NSString *APIKey = [arguments objectAtIndex:0];
+			[TestFairy begin:APIKey];
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		} else {
+			pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"API Key is missing"];
+		}
 		
-	} else {
-		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"API Key is missing"];
-	}
-	
-	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+		[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+	}];
 }
 
 - (void)pushFeedbackController:(CDVInvokedUrlCommand*)command
