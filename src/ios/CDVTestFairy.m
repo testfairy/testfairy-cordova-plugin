@@ -140,4 +140,36 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)log:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *message = [arguments objectAtIndex:0];
+		TFLog(@"%@", message);
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"message is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setServerEndpoint:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *url = [arguments objectAtIndex:0];
+		[TestFairy setServerEndpoint:url];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"url is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end

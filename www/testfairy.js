@@ -118,5 +118,28 @@ TestFairy.prototype.resume = function() {
 	exec(function(){}, function(){}, this.serviceName, "resume", []);
 }
 
+/**
+ * Change the server endpoint for use with on-premise hosting. Please
+ * contact support or sales for more information. Must be called before begin
+ *
+ * @param serverOverride server address for use with TestFairy
+ */
+TestFairy.prototype.setServerEndpoint = function(url) {
+	exec(function(){}, function(){}, this.serviceName, "setServerEndpoint", [ url ]);
+}
+
+/**
+ * Remote logging, use log as you would use console.log. These logs will be sent to the server.
+ */
+TestFairy.prototype.log = function(message) {
+	exec(function(){}, function(){}, this.serviceName, "resume", [ message ]);
+}
+
+var _testfairyConsoleLog = console.log;
+console.log = function(message) {
+	_testfairyConsoleLog(message);
+	TestFairy.log(message);
+}
+
 module.exports = new TestFairy();
 

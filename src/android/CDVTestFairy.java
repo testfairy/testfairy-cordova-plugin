@@ -62,6 +62,12 @@ public class CDVTestFairy extends CordovaPlugin {
 			TestFairy.pause();
 		} else if ("resume".equals(action)) {
 			TestFairy.resume();
+		} else if ("log".equals(action)) {
+			String message = args.optString(0);
+			TestFairy.log("TFCordova", message);
+		} else if ("setServerEndpoint".equals(action)) {
+			String url = args.optString(0);
+			TestFairy.setServerEndpoint(url);
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;

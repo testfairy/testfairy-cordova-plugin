@@ -10,5 +10,6 @@
 - (void)pause:(CDVInvokedUrlCommand*)command;
 - (void)resume:(CDVInvokedUrlCommand*)command;
 - (void)identify:(CDVInvokedUrlCommand*)command;
-
+- (void)log:(CDVInvokedUrlCommand*)command;
+- (void)setServerEndpoint:(CDVInvokedUrlCommand*)command;
 @end
