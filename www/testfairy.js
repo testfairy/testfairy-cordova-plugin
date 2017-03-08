@@ -138,7 +138,7 @@ TestFairy.prototype.log = function(message) {
 var _testfairyConsoleLog = console.log;
 console.log = function(message) {
 	_testfairyConsoleLog(message);
-	TestFairy.log(message);
+	TestFairy.log(JSON.stringify(message));
 }
 
 module.exports = new TestFairy();
