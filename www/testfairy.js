@@ -132,7 +132,7 @@ TestFairy.prototype.setServerEndpoint = function(url) {
  * Remote logging, use log as you would use console.log. These logs will be sent to the server.
  */
 TestFairy.prototype.log = function(message) {
-	exec(function(){}, function(){}, this.serviceName, "resume", [ JSON.stringify(message) ]);
+	exec(function(){}, function(){}, this.serviceName, "log", [ JSON.stringify(message) ]);
 }
 
 // var _testfairyConsoleLog = console.log;
