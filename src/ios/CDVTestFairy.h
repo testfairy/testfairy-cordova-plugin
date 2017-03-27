@@ -12,4 +12,5 @@
 - (void)identify:(CDVInvokedUrlCommand*)command;
 - (void)log:(CDVInvokedUrlCommand*)command;
 - (void)setServerEndpoint:(CDVInvokedUrlCommand*)command;
+- (void)hideWebViewElements:(CDVInvokedUrlCommand*)command;
 @end

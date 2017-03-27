@@ -135,6 +135,10 @@ TestFairy.prototype.log = function(message) {
 	exec(function(){}, function(){}, this.serviceName, "log", [ JSON.stringify(message) ]);
 }
 
+TestFairy.prototype.hideWebViewElements = function(selector) {
+	exec(function(){}, function(){}, this.serviceName, "hideWebViewElements", [ selector ]);
+}
+
 // var _testfairyConsoleLog = console.log;
 // console.log = function(message) {
 // 	_testfairyConsoleLog(message);

@@ -172,4 +172,20 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)hideWebViewElements:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *cssSelector = [arguments objectAtIndex:0];
+		[TestFairy hideWebViewElements:cssSelector];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"url is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
