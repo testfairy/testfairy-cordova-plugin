@@ -182,10 +182,84 @@
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 		
 	} else {
-		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"url is missing"];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"selector is missing"];
 	}
 	
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
+
+- (void)sendUserFeedback:(CDVInvokedUrlCommand *)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *feedback = [arguments objectAtIndex:0];
+		[TestFairy sendUserFeedback:feedback];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"feedback is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)stop:(CDVInvokedUrlCommand *)command  {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+	[TestFairy stop];
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setScreenName:(CDVInvokedUrlCommand *)command  {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *name = [arguments objectAtIndex:0];
+		[TestFairy setScreenName:name];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"screen name is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setUserId:(CDVInvokedUrlCommand *)command  {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 0) {
+		NSString *userId = [arguments objectAtIndex:0];
+		[TestFairy setUserId:userId];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+		
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"userId is missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setAttribute:(CDVInvokedUrlCommand *)command  {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = nil;
+	
+	if ([arguments count] > 1) {
+		NSString *key = [arguments objectAtIndex:0];
+		NSString *value = [arguments objectAtIndex:1];
+		[TestFairy setAttribute:key withValue:value];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"key and value are missing"];
+	}
+	
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 
 @end

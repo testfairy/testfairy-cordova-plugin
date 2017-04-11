@@ -139,6 +139,26 @@ TestFairy.prototype.hideWebViewElements = function(selector) {
 	exec(function(){}, function(){}, this.serviceName, "hideWebViewElements", [ selector ]);
 }
 
+TestFairy.prototype.sendUserFeedback = function(feedback) {
+	exec(function(){}, function(){}, this.serviceName, "sendUserFeedback", [ feedback ]);
+}
+
+TestFairy.prototype.stop = function() {
+	exec(function(){}, function(){}, this.serviceName, "stop", [ ]);
+}
+
+TestFairy.prototype.setScreenName = function(name) {
+	exec(function(){}, function(){}, this.serviceName, "setScreenName", [ name ]);
+}
+
+TestFairy.prototype.setUserId = function(userId) {
+	exec(function(){}, function(){}, this.serviceName, "setUserId", [ userId ]);
+}
+
+TestFairy.prototype.setAttribute = function(key, value) {
+	exec(function(){}, function(){}, this.serviceName, "setAttribute", [ key, value ]);
+}
+
 // var _testfairyConsoleLog = console.log;
 // console.log = function(message) {
 // 	_testfairyConsoleLog(message);

@@ -54,7 +54,7 @@ public class CDVTestFairy extends CordovaPlugin {
 			}
 		} else if ("checkpoint".equals(action)) {
 			String name = args.optString(0);
-			TestFairy.addCheckpoint(name);
+			TestFairy.addEvent(name);
 		} else if ("setCorrelationId".equals(action)) {
 			String id = args.optString(0);
 			TestFairy.setCorrelationId(id);
@@ -68,6 +68,21 @@ public class CDVTestFairy extends CordovaPlugin {
 		} else if ("setServerEndpoint".equals(action)) {
 			String url = args.optString(0);
 			TestFairy.setServerEndpoint(url);
+		} else if ("sendUserFeedback".equals(action)) {
+			String feedback = args.optString(0);
+			TestFairy.sendUserFeedback(feedback);
+		} else if ("stop".equals(action)) {
+			TestFairy.stop();
+		} else if ("setScreenName".equals(action)) {
+			String name = args.optString(0);
+			TestFairy.setScreenName(name);
+		} else if ("setUserId".equals(action)) {
+			String userId = args.optString(0);
+			TestFairy.setUserId(userId);
+		} else if ("setAttribute".equals(action)) {
+			String key = args.optString(0);
+			String value = args.optString(1);
+			TestFairy.setAttribute(key, value);
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;

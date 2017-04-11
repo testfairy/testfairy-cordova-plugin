@@ -13,4 +13,9 @@
 - (void)log:(CDVInvokedUrlCommand*)command;
 - (void)setServerEndpoint:(CDVInvokedUrlCommand*)command;
 - (void)hideWebViewElements:(CDVInvokedUrlCommand*)command;
+- (void)sendUserFeedback:(CDVInvokedUrlCommand *)command;
+- (void)stop:(CDVInvokedUrlCommand *)command;
+- (void)setScreenName:(CDVInvokedUrlCommand *)command;
+- (void)setUserId:(CDVInvokedUrlCommand *)command;
+- (void)setAttribute:(CDVInvokedUrlCommand *)command;
 @end
