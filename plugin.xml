@@ -4,10 +4,7 @@
     <description>TestFairy SDK plugin for Cordova</description>
     <license>Apache 2.0 License</license>
     <engines>
-        <engine name="cordova" version=">=2.9.0" />
-    <!--
-        <engine name="cordova-android" version=">=3.1.0" />
-    -->
+        <engine name="cordova" version=">=3.2.0" />
     </engines>
 
     <js-module src="www/testfairy.js" name="TestFairy">
@@ -18,7 +15,7 @@
 
     <!-- ios -->
     <platform name="ios">
-        <config-file target="config.xml" parent="/widget">
+        <config-file target="config.xml" parent="/*">
             <feature name="TestFairy">
                 <param name="ios-package" value="CDVTestFairy" />
             </feature>
@@ -36,7 +33,7 @@
     </platform>
     <platform name="android">
         <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
-        <source-file src="src/android/testfairy-sdk.jar" target-dir="libs" />
+        <lib-file src="src/android/testfairy-sdk.jar" />
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -49,7 +46,7 @@
             <activity android:name="com.testfairy.activities.ProvideFeedbackActivity" android:configChanges="orientation|screenSize" />
             <activity android:name="com.testfairy.activities.AutoUpdateActivity" android:configChanges="orientation|screenSize" />
         </config-file>
-        <config-file target="config.xml" parent="/widget">
+        <config-file target="config.xml" parent="/*">
             <feature name="TestFairy">
                 <param name="android-package" value="com.testfairy.CDVTestFairy" />
             </feature>
