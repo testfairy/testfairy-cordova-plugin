@@ -83,6 +83,8 @@ public class CDVTestFairy extends CordovaPlugin {
 			String key = args.optString(0);
 			String value = args.optString(1);
 			TestFairy.setAttribute(key, value);
+		} else if ("pushFeedbackController".equals(action)) {
+			TestFairy.showFeedbackForm();
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;
