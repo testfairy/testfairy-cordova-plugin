@@ -1,0 +1,22 @@
+diff --git a/src/app/app.component.ts b/src/app/app.component.ts
+index ab78376..1b88e2f 100644
+--- a/src/app/app.component.ts
++++ b/src/app/app.component.ts
+@@ -3,6 +3,9 @@ import { Platform } from 'ionic-angular';
+ import { StatusBar } from '@ionic-native/status-bar';
+ import { SplashScreen } from '@ionic-native/splash-screen';
+ 
++// Declare the TestFairy instance
++declare var TestFairy: any;
++
+ import { HomePage } from '../pages/home/home';
+ @Component({
+   templateUrl: 'app.html'
+@@ -12,6 +15,7 @@ export class MyApp {
+ 
+   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+     platform.ready().then(() => {
++       TestFairy.begin("");
+       // Okay, so the platform is ready and our plugins are available.
+       // Here you can do any higher level native things you might need.
+       statusBar.styleDefault();

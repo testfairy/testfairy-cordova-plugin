@@ -15,16 +15,28 @@ before_install:
 
 install:
 - npm install -g cordova@6.5.0
+- npm install -g ionic
 
 script:
 - cordova create hello com.example.hello HelloWorld
 - cd hello
 - cordova platform add ios
 - cordova platform add android
-- cordova plugin add https://github.com/testfairy/testfairy-cordova-plugin
+- cordova plugin add ../
 - cordova build ios
 - cordova build android
 - cd ..
+- rm -rf hello
+- ionic start myApp blank --cordova --no-link
+- cd myApp
+- ionic cordova plugin add ../
+- ionic cordova platform add ios
+- ionic cordova platform add android
+- git apply
+- ionic build android
+- ionic build ios
+- cd ..
+- rm -rf myApp
 
 deploy:
   provider: npm
