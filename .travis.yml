@@ -32,7 +32,7 @@ script:
 - ionic cordova plugin add ../
 - ionic cordova platform add ios
 - ionic cordova platform add android
-- git apply
+- git apply ../misc/testfairy.patch
 - ionic build android
 - ionic build ios
 - cd ..
