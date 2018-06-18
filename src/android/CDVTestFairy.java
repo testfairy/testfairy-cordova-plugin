@@ -85,6 +85,31 @@ public class CDVTestFairy extends CordovaPlugin {
 			TestFairy.setAttribute(key, value);
 		} else if ("pushFeedbackController".equals(action)) {
 			TestFairy.showFeedbackForm();
+		} else if ("enableCrashHandler".equals(action)) {
+			TestFairy.enableCrashHandler();
+		} else if ("disableCrashHandler".equals(action)) {
+			TestFairy.disableCrashHandler();
+		} else if ("enableMetric".equals(action)) {
+			String method = args.optString(0);
+			TestFairy.enableMetric(method);
+		} else if ("disableMetric".equals(action)) {
+			String method = args.optString(0);
+			TestFairy.disableMetric(method);
+		} else if ("enableVideo".equals(action)) {
+			String policy = args.optString(0);
+			String quality = args.optString(1);
+			float framesPerSecond = (float)args.optDouble(2, 0);
+			TestFairy.enableVideo(policy, quality, framesPerSecond);
+		} else if ("disableVideo".equals(action)) {
+			TestFairy.disableVideo();
+		} else if ("enableFeedbackForm".equals(action)) {
+			String method = args.optString(0, "shake");
+			TestFairy.enableFeedbackForm(method);
+		} else if ("disableFeedbackForm".equals(action)) {
+			TestFairy.disableFeedbackForm();
+		} else if ("setMaxSessionLength".equals(action)) {
+			float length = (float)args.optDouble(0, 0);
+			TestFairy.setMaxSessionLength(length);
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;

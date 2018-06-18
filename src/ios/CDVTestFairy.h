@@ -18,4 +18,13 @@
 - (void)setScreenName:(CDVInvokedUrlCommand *)command;
 - (void)setUserId:(CDVInvokedUrlCommand *)command;
 - (void)setAttribute:(CDVInvokedUrlCommand *)command;
+- (void)enableCrashHandler:(CDVInvokedUrlCommand*)command;
+- (void)disableCrashHandler:(CDVInvokedUrlCommand*)command;
+- (void)enableMetric:(CDVInvokedUrlCommand*)command;
+- (void)disableMetric:(CDVInvokedUrlCommand*)command;
+- (void)enableVideo:(CDVInvokedUrlCommand*)command;
+- (void)disableVideo:(CDVInvokedUrlCommand*)command;
+- (void)enableFeedbackForm:(CDVInvokedUrlCommand*)command;
+- (void)disableFeedbackForm:(CDVInvokedUrlCommand*)command;
+- (void)setMaxSessionLength:(CDVInvokedUrlCommand*)command;
 @end
