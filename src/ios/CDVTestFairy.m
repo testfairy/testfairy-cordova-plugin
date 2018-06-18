@@ -202,7 +202,6 @@
 }
 
 - (void)stop:(CDVInvokedUrlCommand *)command  {
-	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	[TestFairy stop];
@@ -259,7 +258,6 @@
 }
 
 - (void)enableCrashHandler:(CDVInvokedUrlCommand*)command {
-	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	[TestFairy enableCrashHandler];
@@ -268,7 +266,6 @@
 }
 
 - (void)disableCrashHandler:(CDVInvokedUrlCommand*)command {
-	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	[TestFairy disableCrashHandler];
@@ -313,7 +310,7 @@
 	if ([arguments count] > 2) {
 		NSString *policy = [arguments objectAtIndex:0];
 		NSString *quality = [arguments objectAtIndex:1];
-		float *framesPerSecond = [[arguments objectAtIndex:2] floatValue];
+		float framesPerSecond = [[arguments objectAtIndex:2] floatValue];
 		[TestFairy enableVideo:policy quality:quality framesPerSecond:framesPerSecond];
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	} else {
@@ -324,7 +321,6 @@
 }
 
 - (void)disableVideo:(CDVInvokedUrlCommand*)command {
-	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	[TestFairy disableVideo];
@@ -348,7 +344,6 @@
 }
 
 - (void)disableFeedbackForm:(CDVInvokedUrlCommand*)command {
-	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	[TestFairy disableFeedbackForm];
@@ -361,7 +356,7 @@
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
 	if ([arguments count] > 0) {
-		float *length = [[arguments objectAtIndex:0] floatValue];
+		float length = [[arguments objectAtIndex:0] floatValue];
 		[TestFairy setMaxSessionLength];
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	} else {
