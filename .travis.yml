@@ -29,10 +29,13 @@ script:
 - rm -rf hello
 - ionic start myApp blank --cordova --no-link
 - cd myApp
-- ionic cordova plugin add ../
 - ionic cordova platform add ios
 - ionic cordova platform add android
+- ionic cordova plugin add ../
 - git apply ../misc/testfairy.patch
+- touch node_modules/ionic-angular/package.json
+- touch node_modules/@ionic/app-scripts/package.json
+- touch resources/ios/splash/Default@2x~iphone.png
 - ionic build android
 - ionic build ios
 - cd ..
