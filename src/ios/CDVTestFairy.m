@@ -357,7 +357,7 @@
 
 	if ([arguments count] > 0) {
 		float length = [[arguments objectAtIndex:0] floatValue];
-		[TestFairy setMaxSessionLength];
+		[TestFairy setMaxSessionLength:length];
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	} else {
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"length is missing"];
