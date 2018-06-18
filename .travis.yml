@@ -37,6 +37,7 @@ script:
 - touch node_modules/@ionic/app-scripts/package.json
 - touch resources/ios/splash/Default@2x~iphone.png
 - touch resources/ios/splash/Default-Portrait~ipad.png
+- touch resources/ios/splash/Default~iphone.png
 - ionic build android
 - ionic build ios
 - cd ..
