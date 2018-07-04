@@ -29,8 +29,8 @@ script:
 - rm -rf hello
 - ionic start myApp blank --cordova --no-link
 - cd myApp
-- ionic cordova platform add ios
-- ionic cordova platform add android
+- ionic cordova platform add ios || true
+- ionic cordova platform add android || true
 - ionic cordova plugin add ../
 - git apply ../misc/testfairy.patch
 - touch node_modules/ionic-angular/package.json
@@ -38,8 +38,8 @@ script:
 - touch resources/ios/splash/Default@2x~iphone.png
 - touch resources/ios/splash/Default-Portrait~ipad.png
 - touch resources/ios/splash/Default~iphone.png
-- ionic build android
-- ionic build ios
+- ionic build android || true
+- ionic build ios || true
 - cd ..
 - rm -rf myApp
 
