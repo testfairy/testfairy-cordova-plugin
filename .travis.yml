@@ -1,4 +1,6 @@
 language: objective-c
+jdk:
+  - oraclejdk8
 before_install:
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
