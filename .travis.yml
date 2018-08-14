@@ -1,5 +1,6 @@
 language: objective-c
 before_install:
+- brew tap caskroom/versions
 - brew search java
 - ls -la /Library/Java/JavaVirtualMachines
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
