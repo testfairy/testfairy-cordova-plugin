@@ -1,7 +1,7 @@
 language: objective-c
-node_js:
-- 8
 before_install:
+- nvm install stable
+- nvm use stable
 - brew tap caskroom/versions
 - brew cask install java8
 - export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
