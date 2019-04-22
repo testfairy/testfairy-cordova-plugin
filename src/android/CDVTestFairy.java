@@ -110,6 +110,10 @@ public class CDVTestFairy extends CordovaPlugin {
 		} else if ("setMaxSessionLength".equals(action)) {
 			float length = (float)args.optDouble(0, 0);
 			TestFairy.setMaxSessionLength(length);
+		} else if ("logException".equals(action)) {
+			String message = args.optString(0);
+			String stacktrace = args.optString(1);
+			TestFairy.logThrowable(new Exception(message));
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;

@@ -286,7 +286,15 @@ TestFairy.prototype.disableFeedbackForm = function() {
  */
 TestFairy.prototype.setMaxSessionLength = function(seconds) {
 	exec(function(){}, function(){}, this.serviceName, "setMaxSessionLength", [ seconds ]);
+}
 
+/**
+ * Send an exception to TestFairy.
+ * Note, this function is limited to 5 errors.
+ * @param error Error
+ */
+TestFairy.prototype.logException = function(error) {
+	exec(function(){}, function(){}, this.serviceName, "logException", [ error.message, error.stack ]);
 }
 
 // var _testfairyConsoleLog = console.log;

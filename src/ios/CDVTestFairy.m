@@ -366,5 +366,21 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)logException:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+	if ([arguments count] > 1) {
+		NSString *message = [arguments objectAtIndex:0];
+		NSString *trace = [arguments objectAtIndex:1];
+		NSError *error = [NSError errorWithDomain:@"com.testfairy.cordova" code:-1 userInfo:@{NSLocalizedDescriptionKey: message}];
+		[TestFairy logError:error stacktrace:[trace componentsSeparatedByString:@"\n"]];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"arguments are missing"];
+	}
+
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 
 @end
