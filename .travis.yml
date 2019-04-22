@@ -2,20 +2,14 @@ language: objective-c
 before_install:
 - nvm install stable
 - nvm use stable
-- brew tap caskroom/versions
-- brew cask install caskroom/versions/java8
-- export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
-- ls -la /Library/Java/JavaVirtualMachines
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
 - export ANDROID_HOME=$PWD/android-sdk-macosx
 - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-- echo yes | android update sdk --filter android-23 --no-ui --force > /dev/null
-- echo yes | android update sdk --filter android-24 --no-ui --force > /dev/null
-- echo yes | android update sdk --filter android-25 --no-ui --force > /dev/null
-- echo yes | android update sdk --filter build-tools-23.0.3 --all --no-ui --force > /dev/null
-- echo yes | android update sdk --filter sysimg-23 --no-ui --force > /dev/null
+- echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
+- echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
+- echo yes | android update sdk --filter sysimg-27 --no-ui --force > /dev/null
 - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
 - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
@@ -39,8 +33,6 @@ script:
 - ionic cordova platform add android || true
 - ionic cordova plugin add ../
 - git apply ../misc/testfairy.patch
-# - touch node_modules/ionic-angular/package.json
-# - touch node_modules/@ionic/app-scripts/package.json
 - touch resources/ios/splash/Default@2x~iphone.png
 - touch resources/ios/splash/Default-Portrait~ipad.png
 - touch resources/ios/splash/Default~iphone.png
