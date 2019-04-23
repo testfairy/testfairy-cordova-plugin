@@ -1,22 +1,21 @@
 diff --git a/src/app/app.component.ts b/src/app/app.component.ts
-index ab78376..1b88e2f 100644
+index c0a8a23..19512d5 100644
 --- a/src/app/app.component.ts
 +++ b/src/app/app.component.ts
-@@ -3,6 +3,9 @@ import { Platform } from 'ionic-angular';
- import { StatusBar } from '@ionic-native/status-bar';
- import { SplashScreen } from '@ionic-native/splash-screen';
+@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
+ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+ import { StatusBar } from '@ionic-native/status-bar/ngx';
  
-+// Declare the TestFairy instance
 +declare var TestFairy: any;
 +
- import { HomePage } from '../pages/home/home';
  @Component({
-   templateUrl: 'app.html'
-@@ -12,6 +15,7 @@ export class MyApp {
+   selector: 'app-root',
+   templateUrl: 'app.component.html'
+@@ -19,6 +21,7 @@ export class AppComponent {
  
-   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-     platform.ready().then(() => {
-+       TestFairy.begin("");
-       // Okay, so the platform is ready and our plugins are available.
-       // Here you can do any higher level native things you might need.
-       statusBar.styleDefault();
+   initializeApp() {
+     this.platform.ready().then(() => {
++	TestFairy.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
+       this.statusBar.styleDefault();
+       this.splashScreen.hide();
+     });
