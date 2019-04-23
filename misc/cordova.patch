@@ -1,0 +1,19 @@
+diff --git a/www/js/index.js b/www/js/index.js
+index 6963dc9..33012c7 100644
+--- a/www/js/index.js
++++ b/www/js/index.js
+@@ -28,6 +28,7 @@ var app = {
+     // 'pause', 'resume', etc.
+     onDeviceReady: function() {
+         this.receivedEvent('deviceready');
++				TestFairy.begin("APP TOKEN");
+     },
+ 
+     // Update DOM on a Received Event
+@@ -43,4 +44,4 @@ var app = {
+     }
+ };
+ 
+-app.initialize();
+\ No newline at end of file
++app.initialize();

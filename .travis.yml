@@ -24,6 +24,7 @@ script:
 - cordova platform add ios
 - cordova platform add android
 - cordova plugin add ../testfairy-cordova-plugin
+- git apply ../testfairy-cordova-plugin/misc/cordova.patch
 - cordova build ios
 - cordova build android
 - cd ..
@@ -33,7 +34,7 @@ script:
 - ionic cordova platform add ios || true
 - ionic cordova platform add android || true
 - ionic cordova plugin add ../testfairy-cordova-plugin
-- git apply ../misc/testfairy.patch
+- git apply ../testfairy-cordova-plugin/misc/ionic.patch
 - touch resources/ios/splash/Default@2x~iphone.png
 - touch resources/ios/splash/Default-Portrait~ipad.png
 - touch resources/ios/splash/Default~iphone.png
