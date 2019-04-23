@@ -9,13 +9,11 @@ before_install:
 - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
 - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
 - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
-- echo yes | android update sdk --filter sysimg-27 --no-ui --force > /dev/null
-- echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
-- echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
 install:
 - npm install -g cordova
 - npm install -g ionic
+- gem install xcpretty
 
 script:
 - cd ..
@@ -25,7 +23,7 @@ script:
 - cordova platform add android
 - cordova plugin add ../testfairy-cordova-plugin
 - git apply ../testfairy-cordova-plugin/misc/cordova.patch
-- cordova build ios
+- cordova build ios | xcpretty
 - cordova build android
 - cd ..
 - rm -rf hello
@@ -39,7 +37,7 @@ script:
 - touch resources/ios/splash/Default-Portrait~ipad.png
 - touch resources/ios/splash/Default~iphone.png
 - ionic build android || true
-- ionic build ios || true
+- ionic build ios | xcpretty || true
 - cd ..
 - rm -rf myApp
 - cd testfairy-cordova-plugin
