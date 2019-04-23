@@ -13,6 +13,7 @@ before_install:
 install:
 - npm install -g cordova
 - npm install -g ionic
+- npm install node-sass
 - gem install xcpretty
 
 script:
