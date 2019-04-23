@@ -14,7 +14,7 @@ before_install:
 - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
 install:
-- npm install -g cordova@6.5.0
+- npm install -g cordova
 - npm install -g ionic
 
 script:
