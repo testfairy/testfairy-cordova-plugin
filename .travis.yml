@@ -18,11 +18,12 @@ install:
 - npm install -g ionic
 
 script:
+- cd ..
 - cordova create hello com.example.hello HelloWorld
 - cd hello
 - cordova platform add ios
 - cordova platform add android
-- cordova plugin add ../
+- cordova plugin add ../testfairy-cordova-plugin
 - cordova build ios
 - cordova build android
 - cd ..
@@ -31,7 +32,7 @@ script:
 - cd myApp
 - ionic cordova platform add ios || true
 - ionic cordova platform add android || true
-- ionic cordova plugin add ../
+- ionic cordova plugin add ../testfairy-cordova-plugin
 - git apply ../misc/testfairy.patch
 - touch resources/ios/splash/Default@2x~iphone.png
 - touch resources/ios/splash/Default-Portrait~ipad.png
@@ -40,6 +41,7 @@ script:
 - ionic build ios || true
 - cd ..
 - rm -rf myApp
+- cd testfairy-cordova-plugin
 
 deploy:
   provider: npm
