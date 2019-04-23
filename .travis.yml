@@ -1,7 +1,7 @@
 language: objective-c
 before_install:
-- nvm install stable
-- nvm use stable
+- nvm install v9.4.0 --reinstall-packages-from=node
+- nvm use v9.4.0
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
 - export ANDROID_HOME=$PWD/android-sdk-macosx
@@ -13,7 +13,6 @@ before_install:
 install:
 - npm install -g cordova
 - npm install -g ionic
-- npm install node-sass
 - gem install xcpretty
 
 script:
