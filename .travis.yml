@@ -25,7 +25,7 @@ script:
 - cordova plugin add ../testfairy-cordova-plugin
 - git apply ../testfairy-cordova-plugin/misc/cordova.patch
 - cordova build ios | xcpretty
-- cordova build android
+# - cordova build android
 - cd ..
 - rm -rf hello
 - ionic start myApp blank --cordova --no-link
