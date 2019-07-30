@@ -1,5 +1,5 @@
 diff --git a/src/app/app.component.ts b/src/app/app.component.ts
-index c0a8a23..19512d5 100644
+index 65b00ab..543b663 100644
 --- a/src/app/app.component.ts
 +++ b/src/app/app.component.ts
 @@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
@@ -10,12 +10,12 @@ index c0a8a23..19512d5 100644
 +
  @Component({
    selector: 'app-root',
-   templateUrl: 'app.component.html'
-@@ -19,6 +21,7 @@ export class AppComponent {
+   templateUrl: 'app.component.html',
+@@ -20,6 +22,7 @@ export class AppComponent {
  
    initializeApp() {
      this.platform.ready().then(() => {
-+	TestFairy.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
++      TestFairy.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
        this.statusBar.styleDefault();
        this.splashScreen.hide();
      });
