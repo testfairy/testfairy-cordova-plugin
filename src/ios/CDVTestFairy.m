@@ -351,6 +351,14 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)disableAutoUpdate:(CDVInvokedUrlCommand*)command {
+	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+	[TestFairy disableAutoUpdate];
+
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)setMaxSessionLength:(CDVInvokedUrlCommand*)command {
 	NSArray* arguments = command.arguments;
 	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];

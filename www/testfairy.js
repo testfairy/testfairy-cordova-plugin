@@ -297,6 +297,15 @@ TestFairy.prototype.logException = function(error) {
 	exec(function(){}, function(){}, this.serviceName, "logException", [ error.message, error.stack ]);
 }
 
+/**
+ * Disable auto updates for this build. Even if there's a newer
+ * build available through TestFairy, ignore it, and continue
+ * using the current build. Must be called before begin
+ */
+TestFairy.prototype.disableAutoUpdate = function() {
+	exec(function(){}, function(){}, this.serviceName, "disableAutoUpdate", []);
+}
+
 // var _testfairyConsoleLog = console.log;
 // console.log = function(message) {
 // 	_testfairyConsoleLog(message);

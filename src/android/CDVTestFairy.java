@@ -107,6 +107,8 @@ public class CDVTestFairy extends CordovaPlugin {
 			TestFairy.enableFeedbackForm(method);
 		} else if ("disableFeedbackForm".equals(action)) {
 			TestFairy.disableFeedbackForm();
+		} else if ("disableAutoUpdate".equals(action)) {
+			TestFairy.disableAutoUpdate();
 		} else if ("setMaxSessionLength".equals(action)) {
 			float length = (float)args.optDouble(0, 0);
 			TestFairy.setMaxSessionLength(length);

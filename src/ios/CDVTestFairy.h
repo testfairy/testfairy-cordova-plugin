@@ -26,6 +26,7 @@
 - (void)disableVideo:(CDVInvokedUrlCommand*)command;
 - (void)enableFeedbackForm:(CDVInvokedUrlCommand*)command;
 - (void)disableFeedbackForm:(CDVInvokedUrlCommand*)command;
+- (void)disableAutoUpdate:(CDVInvokedUrlCommand*)command;
 - (void)setMaxSessionLength:(CDVInvokedUrlCommand*)command;
 - (void)logException:(CDVInvokedUrlCommand*)command;
 @end
