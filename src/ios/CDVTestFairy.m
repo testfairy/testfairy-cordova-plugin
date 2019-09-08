@@ -1,5 +1,5 @@
 #import "CDVTestFairy.h"
-#import "TestFairy.h"
+#import <TestFairy/TestFairy.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Cordova/CDVPluginResult.h>
 

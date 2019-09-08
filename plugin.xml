@@ -20,10 +20,9 @@
                 <param name="ios-package" value="CDVTestFairy" />
             </feature>
         </config-file>
-        <header-file src="src/ios/TestFairy.h" />
         <header-file src="src/ios/CDVTestFairy.h" />
         <source-file src="src/ios/CDVTestFairy.m" />
-        <source-file src="src/ios/libTestFairy.a" framework="true" />
+        <framework src="src/ios/TestFairy.framework" custom="true" embed="true"/>
         <framework src="CoreMedia.framework" />
         <framework src="CoreMotion.framework" />
         <framework src="AVFoundation.framework" />
