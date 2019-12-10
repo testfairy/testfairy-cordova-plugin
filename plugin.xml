@@ -33,7 +33,7 @@
     </platform>
     <platform name="android">
         <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
-        <framework src="testfairy:testfairy-android-sdk:1.9.22" />@aar
+        <framework src="testfairy:testfairy-android-sdk:1.9.22@aar" />
         <config-file target="config.xml" parent="/*">
             <feature name="TestFairy">
                 <param name="android-package" value="com.testfairy.CDVTestFairy" />
