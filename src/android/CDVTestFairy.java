@@ -116,6 +116,10 @@ public class CDVTestFairy extends CordovaPlugin {
 			String message = args.optString(0);
 			String stacktrace = args.optString(1);
 			TestFairy.logThrowable(new Exception(message));
+		} else if ("showFeedbackForm".equals(action)) {
+			String appToken = args.optString(0);
+			boolean takeScreenshot = args.optBoolean(1);
+			TestFairy.showFeedbackForm(cordova.getActivity(), appToken, takeScreenshot);
 		} else {
 			Log.d("TestFairy", "Action " + action + " is not supported on Android.");
 			return false;

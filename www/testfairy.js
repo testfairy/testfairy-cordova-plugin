@@ -25,9 +25,9 @@ var TestFairy = function() {
 	this.serviceName = "TestFairy";
 }
 
-TestFairy.prototype.begin = function(APIKey) {
-	if (APIKey) {
-		exec(function(){}, function(){}, this.serviceName, "begin", [ APIKey ]);
+TestFairy.prototype.begin = function(appToken) {
+	if (appToken) {
+		exec(function(){}, function(){}, this.serviceName, "begin", [ appToken ]);
 	} else {
 		// api key not provided
 
@@ -49,6 +49,22 @@ TestFairy.prototype.begin = function(APIKey) {
  */
 TestFairy.prototype.pushFeedbackController = function() {
 	exec(function(){}, function(){}, this.serviceName, "pushFeedbackController", [ ]);
+}
+
+/**
+ * Displays the feedback form. Allow users to provide
+ * feedback without prior call to begin. All feedback
+ * will appear in your build report page, and in
+ * "Feedbacks" tab.
+ *
+ * This method is different from showFeedbackForm by
+ * that it does not require a call to begin().
+ *
+ * @param appToken Your key as given to you in your TestFairy account
+ * @param takeScreenshot whether screenshot should be automatically added
+ */
+TestFairy.prototype.showFeedbackForm = function(appToken, takeScreenshot) {
+	exec(function(){}, function(){}, this.serviceName, "showFeedbackForm", [ appToken, takeScreenshot ]);
 }
 
 /**

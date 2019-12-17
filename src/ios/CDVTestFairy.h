@@ -29,4 +29,5 @@
 - (void)disableAutoUpdate:(CDVInvokedUrlCommand*)command;
 - (void)setMaxSessionLength:(CDVInvokedUrlCommand*)command;
 - (void)logException:(CDVInvokedUrlCommand*)command;
+- (void)showFeedbackForm:(CDVInvokedUrlCommand*)command;
 @end

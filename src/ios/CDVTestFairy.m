@@ -391,4 +391,20 @@
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)showFeedbackForm:(CDVInvokedUrlCommand*)command {
+	NSArray* arguments = command.arguments;
+	CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+	if ([arguments count] > 1) {
+		NSString *appToken = [arguments objectAtIndex:0];
+		BOOL *takeScreenshot = [[arguments objectAtIndex:1] boolValue];
+		[TestFairy showFeedbackForm:appToken takeScreenshot:takeScreenshot];
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+	} else {
+		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"arguments are missing"];
+	}
+
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
