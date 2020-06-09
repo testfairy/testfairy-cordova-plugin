@@ -45,6 +45,7 @@ deploy:
   email: support@testfairy.com
   api_key:
     secure: ekBaYTIbK1Ptuxp6bu1U519Z8hd6/waE75D0sgZJyMyoRDf1sZ20Y9kZgJAFdc1uySereNqe557+P+2JQnw6IXF3r6+SoIaAVqvh+k+JMeFTTjh+PgIN+kyS4pDO6aMD545PNm0YdDGuwJWslhLBUSZiET3nw0d56FAkAtU9wZU=
+  skip_cleanup: true
   on:
     tags: true
     repo: testfairy/testfairy-cordova-plugin
