@@ -1,7 +1,7 @@
 language: objective-c
 before_install:
-- nvm install v9.4.0 --reinstall-packages-from=node
-- nvm use v9.4.0
+- nvm install v12.16.2 --reinstall-packages-from=node
+- nvm use v12.16.2
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
 - export ANDROID_HOME=$PWD/android-sdk-macosx
