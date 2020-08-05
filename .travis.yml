@@ -1,4 +1,8 @@
 language: objective-c
+
+matrix:
+  fast_finish: true
+  
 before_install:
 - nvm install v12.16.2 --reinstall-packages-from=node
 - nvm use v12.16.2
