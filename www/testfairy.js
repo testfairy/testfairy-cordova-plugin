@@ -40,6 +40,10 @@ TestFairy.prototype.begin = function(appToken) {
 	}
 };
 
+TestFairy.prototype.installFeedbackHandler = function(appToken) {
+	exec(function(){}, function(){}, this.serviceName, "installFeedbackHandler", [ appToken ]);
+};
+
 /**
  * (Optional) Push the feedback view controller. Hook a button
  * to this method to allow users to provide feedback about the current

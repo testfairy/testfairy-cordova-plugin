@@ -30,4 +30,5 @@
 - (void)setMaxSessionLength:(CDVInvokedUrlCommand*)command;
 - (void)logException:(CDVInvokedUrlCommand*)command;
 - (void)showFeedbackForm:(CDVInvokedUrlCommand*)command;
+- (void)installFeedbackHandler:(CDVInvokedUrlCommand*)command;
 @end
