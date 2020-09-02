@@ -83,6 +83,19 @@
 + (void)installCrashHandler:(NSString *)appToken;
 
 /**
+ * Initialize the TestFairy SDK with shake for feedback enabled. No sessions will be recorded.
+ */
++ (void)installFeedbackHandler:(NSString *)appToken;
+
+/**
+ * Initialize the TestFairy SDK with shake for feedback enabled. No sessions will be recorded.
+ * Enables the ability to present the feedback form
+ * based on the method given. Valid values include
+ * "shake", "screenshot" or "shake|screenshot".
+*/
++ (void)installFeedbackHandler:(NSString *)appToken method:(NSString *)method;
+
+/**
  * Change the server endpoint for use with on-premise hosting. Please
  * contact support or sales for more information. Must be called before begin
  *
@@ -430,6 +443,25 @@
 + (void)setFeedbackEmailVisible:(BOOL)visible;
 
 /**
+ * Customize the feedback form
+ *
+ * Accepted dictionary values: @{
+ * 	@"defaultText": <Default feedback text>,
+ * 	@"isEmailMandatory": @NO|@YES,
+ * 	@"isEmailVisible": @NO|@YES
+ * }
+ *
+ * defaultText: By setting a default text, you will override the initial content of the text area
+ * inside the feedback form. This way, you can standardize the way you receive feedbacks
+ * by specifying guidelines to your users.
+ *
+ * isEmailMandatory: Determines whether the user has to add his email address to the feedback. Default is true
+ *
+ * isEmailVisible: Determines whether the email field is displayed in the feedback form. Default is true
+ */
++ (void)setFeedbackOptions:(NSDictionary *)options;
+
+/**
  * Query the distribution status of this build. Distribution is not required
  * for working with the TestFairy SDK, meaning, you can use the SDK with the App Store.
  *
@@ -479,6 +511,19 @@
 	   requestSize:(long)requestSize
 	  responseSize:(long)responseSize
 	  errorMessage:(NSString*)error;
++ (void)addNetwork:(NSURL *)url
+			method:(NSString *)method
+			  code:(int)code
+ startTimeInMillis:(long)startTime
+   endTimeInMillis:(long)endTime
+	   requestSize:(long)requestSize
+	  responseSize:(long)responseSize
+	  errorMessage:(NSString*)error
+	requestHeaders:(NSString*)requestHeaders
+	   requestBody:(NSData *)requestBody
+   responseHeaders:(NSString *)responseHeaders
+	  responseBody:(NSData*)responseBody;
+
 /**
  * Send an NSError to TestFairy.
  * Note, this function is limited to 5 errors.
