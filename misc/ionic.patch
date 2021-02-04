@@ -1,21 +1,14 @@
-diff --git a/src/app/app.component.ts b/src/app/app.component.ts
-index 65b00ab..543b663 100644
---- a/src/app/app.component.ts
-+++ b/src/app/app.component.ts
-@@ -4,6 +4,8 @@ import { Platform } from '@ionic/angular';
- import { SplashScreen } from '@ionic-native/splash-screen/ngx';
- import { StatusBar } from '@ionic-native/status-bar/ngx';
+diff --git a/src/main.ts b/src/main.ts
+index 91ec6da..93a7fc8 100644
+--- a/src/main.ts
++++ b/src/main.ts
+@@ -4,6 +4,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+ import { AppModule } from './app/app.module';
+ import { environment } from './environments/environment';
  
 +declare var TestFairy: any;
++TestFairy.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
 +
- @Component({
-   selector: 'app-root',
-   templateUrl: 'app.component.html',
-@@ -20,6 +22,7 @@ export class AppComponent {
- 
-   initializeApp() {
-     this.platform.ready().then(() => {
-+      TestFairy.begin("5b3af35e59a1e074e2d50675b1b629306cf0cfbd");
-       this.statusBar.styleDefault();
-       this.splashScreen.hide();
-     });
+ if (environment.production) {
+   enableProdMode();
+ }
