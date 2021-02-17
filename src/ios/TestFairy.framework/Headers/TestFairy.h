@@ -56,6 +56,70 @@
 - (void)noAutoUpdateAvailable;
 @end
 
+@interface TestFairyFeedbackContent: NSObject
+- (instancetype)initWith:(NSString *)text email:(NSString *)email timestamp:(long)timestamp;
+- (instancetype)initWith:(NSString *)text email:(NSString *)email timestamp:(long)timestamp bitmap:(UIImage *)bitmap;
+
+@property(nonatomic, strong, readonly) NSString* text;
+@property(nonatomic, strong, readonly) NSString* email;
+@property(nonatomic, strong, readonly) UIImage* bitmap;
+@property(nonatomic, readonly) long timestamp;
+@end
+
+@class TestFairyFeedbackOptionsBuilder;
+typedef TestFairyFeedbackContent * (^TestFairyFeedbackInterceptor)(TestFairyFeedbackContent *);
+
+@interface TestFairyFeedbackOptions: NSObject
+
+/**
+ * Convenience method for creating TestFairyFeedbackOptions.
+ *
+ * TestFairyFeedbackOptions *options = [TestFairyFeedbackOptions createWithBlock:^(TestFairyFeedbackOptionsBuilder * builder) {
+ *    builder.defaultText = @"Some default text";
+ *    builder.isEmailMandatory = NO;
+ * }];
+ *
+ * Note: Developers do not need to call "build" on the TestFairyFeedbackOptionsBuilder. This will be called internally
+ */
++ (instancetype)createWithBlock:(void (^)(TestFairyFeedbackOptionsBuilder *))block;
+
+/**
+ * By setting a default text, you will override the initial content of the text area
+ * inside the feedback form. This way, you can standardize the way you receive feedbacks
+ * by specifying guidelines to your users.
+*/
+@property(readonly, nonatomic, strong) NSString* defaultText;
+
+/**
+ * Determines whether the user has to add his email address to the feedback. Default is true
+ */
+@property(readonly, nonatomic) BOOL isEmailMandatory;
+
+/**
+ * Determines whether the email field is displayed in the feedback form. Default is true
+ *  Note: If set to false, isEmailMandatory will also be set to false.
+ */
+@property(readonly, nonatomic) BOOL isEmailVisible;
+
+@property(readonly, nonatomic, copy) TestFairyFeedbackInterceptor interceptor;
+
+@end
+
+@interface TestFairyFeedbackOptionsBuilder: NSObject
+
+/**
+ * Create TestFairyFeedbackOptions.
+ *
+ * Alternatively, See TestFairyFeedbackOptions#createWithBlock
+ */
+- (TestFairyFeedbackOptions *)build;
+
+@property(nonatomic, strong) NSString* defaultText;
+@property(nonatomic) BOOL isEmailMandatory;
+@property(nonatomic) BOOL isEmailVisible;
+@property(nonatomic, copy) TestFairyFeedbackInterceptor interceptor;
+@end
+
 @interface TestFairy: NSObject
 
 /**
@@ -460,7 +524,7 @@
  *
  * @param visible BOOL
  */
-+ (void)setFeedbackEmailVisible:(BOOL)visible;
++ (void)setFeedbackEmailVisible:(BOOL)visible TF_DEPRECATED("Please refer setTestFairyFeedbackOptions");
 
 /**
  * Customize the feedback form
@@ -479,7 +543,12 @@
  *
  * isEmailVisible: Determines whether the email field is displayed in the feedback form. Default is true
  */
-+ (void)setFeedbackOptions:(NSDictionary *)options;
++ (void)setFeedbackOptions:(NSDictionary *)options TF_DEPRECATED("Please refer to setTestFairyFeedbackOptions");
+
+/**
+ * You can customize the feedback form by creating FeedbackOptions, See TestFairyFeedbackOptions
+ */
++ (void)setTestFairyFeedbackOptions:(TestFairyFeedbackOptions *)options;
 
 /**
  * Query the distribution status of this build. Distribution is not required
