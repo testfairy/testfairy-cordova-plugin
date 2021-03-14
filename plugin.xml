@@ -22,18 +22,11 @@
         </config-file>
         <header-file src="src/ios/CDVTestFairy.h" />
         <source-file src="src/ios/CDVTestFairy.m" />
-        <framework src="src/ios/TestFairy.framework" custom="true" embed="true"/>
-        <hook type="after_plugin_install" src="scripts/ios/strip-architectures.js" />
-        <framework src="CoreMedia.framework" />
-        <framework src="CoreMotion.framework" />
-        <framework src="AVFoundation.framework" />
-        <framework src="SystemConfiguration.framework" />
-        <framework src="OpenGLES.framework" />
-        <framework src="CoreLocation.framework" />
+        <framework src="TestFairy" type="podspec" spec="~> 1.28.1" />
     </platform>
     <platform name="android">
         <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
-        <framework src="testfairy:testfairy-android-sdk:1.11.43@aar" />
+        <framework src="src/android/rules.gradle" custom="true" type="gradleReference" />
         <config-file target="config.xml" parent="/*">
             <feature name="TestFairy">
                 <param name="android-package" value="com.testfairy.CDVTestFairy" />
