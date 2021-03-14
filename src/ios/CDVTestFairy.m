@@ -397,7 +397,7 @@
 
 	if ([arguments count] > 1) {
 		NSString *appToken = [arguments objectAtIndex:0];
-		BOOL *takeScreenshot = [[arguments objectAtIndex:1] boolValue];
+		BOOL takeScreenshot = [[arguments objectAtIndex:1] boolValue];
 		[TestFairy showFeedbackForm:appToken takeScreenshot:takeScreenshot];
 		pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	} else {
