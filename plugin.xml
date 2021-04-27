@@ -22,7 +22,7 @@
         </config-file>
         <header-file src="src/ios/CDVTestFairy.h" />
         <source-file src="src/ios/CDVTestFairy.m" />
-        <framework src="TestFairy" type="podspec" spec="~> 1.28.2" />
+        <framework src="TestFairy" type="podspec" spec="1.28.2" />
     </platform>
     <platform name="android">
         <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
