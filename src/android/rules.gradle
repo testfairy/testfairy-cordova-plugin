@@ -15,5 +15,5 @@ class TestFairyRepositoryPlugin implements Plugin<Gradle> {
 apply plugin: TestFairyRepositoryPlugin
 
 dependencies {
-    api 'com.testfairy:testfairy-android-sdk:1.12.3@aar'
+    api 'com.testfairy:testfairy-android-sdk:1.12.6@aar'
 }
