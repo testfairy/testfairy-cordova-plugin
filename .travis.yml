@@ -13,6 +13,7 @@ before_install:
 - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
 - echo yes | android update sdk --filter android-28 --no-ui --force > /dev/null
 - echo yes | android update sdk --filter build-tools-28.0.3 --all --no-ui --force > /dev/null
+- pod repo update
 install:
 - npm install -g cordova
 - npm install -g ionic
