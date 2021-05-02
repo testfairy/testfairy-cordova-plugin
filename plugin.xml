@@ -4,7 +4,7 @@
     <description>TestFairy SDK plugin for Cordova</description>
     <license>Apache 2.0 License</license>
     <engines>
-        <engine name="cordova" version=">=3.2.0" />
+        <engine name="cordova" version=">=9.0.0" />
     </engines>
 
     <js-module src="www/testfairy.js" name="TestFairy">
@@ -22,7 +22,14 @@
         </config-file>
         <header-file src="src/ios/CDVTestFairy.h" />
         <source-file src="src/ios/CDVTestFairy.m" />
-        <framework src="TestFairy" type="podspec" spec="1.28.7" />
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="TestFairy" spec="1.28.7" />
+            </pods>
+        </podspec>
     </platform>
     <platform name="android">
         <source-file src="src/android/CDVTestFairy.java" target-dir="src/com/testfairy" />
