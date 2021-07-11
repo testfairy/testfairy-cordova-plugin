@@ -1,4 +1,4 @@
-name: Release TestFairy React Native SDK
+name: Release TestFairy Cordova/Ionic SDK
 on:
   push:
     tags:
