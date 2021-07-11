@@ -1,0 +1,25 @@
+name: Release TestFairy React Native SDK
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '15.12.0'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Update native SDK versions
+        run: |
+          ANDROID_SDK_VERSION=1.12.12
+          IOS_VERSION=1.29.2
+          echo "Android ${ANDROID_SDK_VERSION}"
+          echo "iOS ${IOS_VERSION}"
+      - run: npm install
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
