@@ -1,4 +1,4 @@
-name: Build TestFairy for React Native 
+name: Build TestFairy for Ionic
 on: push
 
 jobs:
