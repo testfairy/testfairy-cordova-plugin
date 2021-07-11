@@ -2,52 +2,6 @@ name: Build TestFairy for React Native
 on: push
 
 jobs:
-  build-cordova-ios:
-    runs-on: macos-latest
-    timeout-minutes: 30
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '15.12.0'
-    - name: Install Dependencies
-      run: |
-        npm install -g cordova
-        gem install xcpretty
-    - name: Create and build sample project with TestFairy
-      run: |
-        cd ..
-        cordova create hello com.example.hello HelloWorld
-        cd hello
-        cordova platform add ios
-        cordova plugin add ../testfairy-cordova-plugin
-        git apply ../testfairy-cordova-plugin/misc/cordova.patch
-        cordova build ios | xcpretty
-  build-cordova-android:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '15.12.0'
-    - uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v2
-    - name: Install Dependencies
-      run: |
-        npm install -g cordova
-    - name: Create and build sample project with TestFairy
-      run: |
-        cd ..
-        cordova create hello com.example.hello HelloWorld
-        cd hello
-        cordova platform add android
-        cordova plugin add ../testfairy-cordova-plugin
-        git apply ../testfairy-cordova-plugin/misc/cordova.patch
-        cordova build android
   build-ionic-ios:
     runs-on: macos-latest
     timeout-minutes: 30
