@@ -1,5 +1,8 @@
 name: Build TestFairy for Cordova 
-on: push
+on: 
+  push:
+  schedule:
+    - cron:  '0 2 * * *'
 
 jobs:
   build-cordova-ios:
