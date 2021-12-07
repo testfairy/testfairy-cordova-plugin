@@ -1,6 +1,6 @@
 {
   "name": "com.testfairy.cordova-plugin",
-  "version": "2.52.0",
+  "version": "2.53.0",
   "description": "TestFairy SDK plugin for Cordova",
   "engines": {
     "node": ">=6.0.0"
