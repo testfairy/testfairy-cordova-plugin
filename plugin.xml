@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.testfairy.cordova-plugin" version="2.51.0">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.testfairy.cordova-plugin" version="2.52.0">
     <name>TestFairy Plugin</name>
     <description>TestFairy SDK plugin for Cordova</description>
     <license>Apache 2.0 License</license>
@@ -27,7 +27,7 @@
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="TestFairy" spec="1.29.3" />
+                <pod name="TestFairy" spec="1.29.4" />
             </pods>
         </podspec>
     </platform>
