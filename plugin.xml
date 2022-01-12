@@ -27,7 +27,7 @@
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="TestFairy" spec="1.29.4" />
+                <pod name="TestFairy" spec="1.29.5" />
             </pods>
         </podspec>
     </platform>
