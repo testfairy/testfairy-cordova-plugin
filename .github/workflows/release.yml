@@ -15,8 +15,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Update native SDK versions
         run: |
-          ANDROID_SDK_VERSION=1.12.18
-          IOS_VERSION=1.29.5
+          ANDROID_SDK_VERSION=1.12.19
+          IOS_VERSION=1.29.6
           echo "Android ${ANDROID_SDK_VERSION}"
           echo "iOS ${IOS_VERSION}"
       - run: npm install
